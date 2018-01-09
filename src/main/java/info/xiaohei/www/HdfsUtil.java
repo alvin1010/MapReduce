@@ -13,7 +13,7 @@ import java.net.URI;
  */
 public class HdfsUtil {
 
-    private static final String HDFS = "hdfs://localhost:9000/";
+    private static final String HDFS = "hdfs://1.1.1.171:9000/";
     private static final Configuration conf = new Configuration();
 
     /**
@@ -46,9 +46,10 @@ public class HdfsUtil {
 
     /**
      * 重命名文件
+     *
      * @param src 源文件名
      * @param dst 目标文件名
-     * */
+     */
     public static void rename(String src, String dst) throws IOException {
         Path name1 = new Path(src);
         Path name2 = new Path(dst);
@@ -70,7 +71,7 @@ public class HdfsUtil {
         System.out.println("ls: " + folder);
         System.out.println("==========================================================");
         for (FileStatus f : list) {
-            System.out.printf("name: %s, folder: %s, size: %d\n", f.getPath(), f.isDirectory(), f.getLen());
+            System.out.printf("name: %s, folder: %s, size: %d\n", f.getPath(), f.isDir(), f.getLen());
         }
         System.out.println("==========================================================");
         fs.close();
